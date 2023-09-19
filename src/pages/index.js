@@ -117,7 +117,7 @@ export default function Dinger() {
       return;
     }
 
-    const ding = { dinger: myDid }; // Assume myDid is available in this scope
+    const ding = { dinger: myDid }; 
 
     if (noteValue) {
       ding.note = noteValue;
@@ -127,7 +127,7 @@ export default function Dinger() {
       const { record, status } = await web5.dwn.records.write({
         data: ding,
         message: {
-          protocol: 'https://blackgirlbytes.dev/protocol', // Replace with your protocol URL
+          protocol: 'https://blackgirlbytes.dev/protocol', //My protocol URL
           protocolPath: 'ding',
           schema: 'ding',
           recipient: didValue // Use the state variable
@@ -139,7 +139,7 @@ export default function Dinger() {
         return;
       }
 
-      const { status: sendStatus } = await record.send(didValue); // Use the state variable
+      const { status: sendStatus } = await record.send(didValue); 
 
       if (sendStatus.code !== 202) {
         alert(`${sendStatus.code} - ${sendStatus.detail}`);
